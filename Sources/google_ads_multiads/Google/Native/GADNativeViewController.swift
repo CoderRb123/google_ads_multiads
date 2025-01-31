@@ -12,24 +12,24 @@ import MultiAdsInterface
 // This sample code is based on Google's examples
 // https://github.com/googleads/googleads-mobile-ios-examples/releases/tag/7.22
 
-class GADNativeViewController: UIViewController {
+public class GADNativeViewController: UIViewController {
     
     
 
   /// The height constraint applied to the ad view, where necessary.
-  var heightConstraint: NSLayoutConstraint?
+    public var heightConstraint: NSLayoutConstraint?
 
   /// The ad loader. You must keep a strong reference to the GADAdLoader during the ad loading
   /// process.
-  var adLoader: GADAdLoader!
+    public var adLoader: GADAdLoader!
 
   /// The native ad view that is being presented.
-  var nativeAdView: GADNativeAdView!
+    public var nativeAdView: GADNativeAdView!
 
   /// The ad unit ID.
-    let adUnitID = ServerConfig.sharedInstance.adNetworkIds?["google"]?.nativeId ?? ""
+    public  let adUnitID = ServerConfig.sharedInstance.adNetworkIds?["google"]?.nativeId ?? ""
 
-  override func viewDidLoad() {
+    public override func viewDidLoad() {
     super.viewDidLoad()
 
     guard
@@ -43,7 +43,7 @@ class GADNativeViewController: UIViewController {
     refreshAd()
   }
 
-  func setAdView(_ view: GADNativeAdView) {
+    public  func setAdView(_ view: GADNativeAdView) {
 
     nativeAdView = view
     self.view.addSubview(nativeAdView)
@@ -67,7 +67,7 @@ class GADNativeViewController: UIViewController {
   // MARK: - Actions
 
   /// Refreshes the native ad.
-  func refreshAd() {
+    public func refreshAd() {
     adLoader = GADAdLoader(
       adUnitID: adUnitID ?? "", rootViewController: self,
       adTypes: [.native], options: nil)
@@ -77,7 +77,7 @@ class GADNativeViewController: UIViewController {
 
   /// Returns a `UIImage` representing the number of stars from the given star rating; returns `nil`
   /// if the star rating is less than 3.5 stars.
-  func imageOfStars(from starRating: NSDecimalNumber?) -> UIImage? {
+    public func imageOfStars(from starRating: NSDecimalNumber?) -> UIImage? {
     guard let rating = starRating?.doubleValue else {
       return nil
     }
@@ -95,16 +95,16 @@ class GADNativeViewController: UIViewController {
   }
 }
 
-extension GADNativeViewController: @preconcurrency GADVideoControllerDelegate {
+ extension GADNativeViewController: @preconcurrency GADVideoControllerDelegate {
 
-  func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
+     public func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
     print("Video playback has ended.")
   }
 }
 
 extension GADNativeViewController: @preconcurrency GADNativeAdLoaderDelegate {
 
-  func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
+    public func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
 
     // Set ourselves as the native ad delegate to be notified of native ad events.
     nativeAd.delegate = self
@@ -176,7 +176,7 @@ extension GADNativeViewController: @preconcurrency GADNativeAdLoaderDelegate {
     nativeAdView.nativeAd = nativeAd
   }
 
-  func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
+    public func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
     print("\(adLoader) failed with error: \(error.localizedDescription)")
   }
 }
@@ -185,27 +185,27 @@ extension GADNativeViewController: @preconcurrency GADNativeAdLoaderDelegate {
 
 extension GADNativeViewController: @preconcurrency GADNativeAdDelegate {
 
-    nonisolated func nativeAdDidRecordClick(_ nativeAd: GADNativeAd) {
+    public nonisolated func nativeAdDidRecordClick(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdDidRecordImpression(_ nativeAd: GADNativeAd) {
+    public func nativeAdDidRecordImpression(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdWillPresentScreen(_ nativeAd: GADNativeAd) {
+    public func nativeAdWillPresentScreen(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdWillDismissScreen(_ nativeAd: GADNativeAd) {
+    public func nativeAdWillDismissScreen(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdDidDismissScreen(_ nativeAd: GADNativeAd) {
+    public func nativeAdDidDismissScreen(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 
-  func nativeAdIsMuted(_ nativeAd: GADNativeAd) {
+    public func nativeAdIsMuted(_ nativeAd: GADNativeAd) {
     print("\(#function) called")
   }
 }

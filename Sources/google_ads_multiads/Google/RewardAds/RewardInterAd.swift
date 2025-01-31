@@ -3,16 +3,16 @@ import GoogleMobileAds
 import MultiAdsInterface
 @available(iOS 13.0, *)
 class RewardInterAd: NSObject, GADFullScreenContentDelegate {
-    private var reward: GADRewardedInterstitialAd?
-    @MainActor static var shared: RewardInterAd = RewardInterAd()
-    let common:CommonChangables = CommonChangables.shared
+    public var reward: GADRewardedInterstitialAd?
+    @MainActor public static var shared: RewardInterAd = RewardInterAd()
+    public let common:CommonChangables = CommonChangables.shared
 
 //    override init() {
 //        super.init()
 //        loadReward()
 //    }
     
-    func loadReward(config:AdConfigDataModel?,onComplete:@escaping ()->Void) {
+    public func loadReward(config:AdConfigDataModel?,onComplete:@escaping ()->Void) {
         common.onComplete = onComplete
         var localConfig = config
         if(localConfig == nil){
@@ -38,7 +38,7 @@ class RewardInterAd: NSObject, GADFullScreenContentDelegate {
        
     }
     
-    func showRewardAd(onComplete:@escaping ()->Void) {
+    public  func showRewardAd(onComplete:@escaping ()->Void) {
         if reward != nil, let root = rootController {
             reward?.present(fromRootViewController: root){
 
@@ -47,12 +47,12 @@ class RewardInterAd: NSObject, GADFullScreenContentDelegate {
     }
     
     
-    func adWillPresentFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
+    public func adWillPresentFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
         common.adLoader = false
 
     }
     
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    public func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         common.adLoader = false
         print("On Ad Dismiss")
         common.onComplete()

@@ -4,6 +4,7 @@
 
 
 
+@available(iOS 13.0, *)
 public class GoogleAdsMultiClient {
     
     
@@ -12,5 +13,5 @@ public class GoogleAdsMultiClient {
     }
     
     
-    let googleAds:GoogleAds = GoogleAds()
+    public let googleAds:GoogleAds = GoogleAds()
 }

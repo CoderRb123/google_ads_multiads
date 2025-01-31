@@ -2,21 +2,21 @@ import ObjectiveC
 import GoogleMobileAds
 import MultiAdsInterface
 @available(iOS 13.0, *)
-class RewardAd: NSObject, GADFullScreenContentDelegate {
+public class RewardAd: NSObject, GADFullScreenContentDelegate {
     
-    @MainActor static let sharedInstance = RewardAd(adModuleCallBacks: nil)
+    @MainActor public static let sharedInstance = RewardAd(adModuleCallBacks: nil)
    
-   var adModuleCallBacks:AdModuleWithCallBacks?
+    public var adModuleCallBacks:AdModuleWithCallBacks?
    
-    init(adModuleCallBacks: AdModuleWithCallBacks?) {
+    public   init(adModuleCallBacks: AdModuleWithCallBacks?) {
        self.adModuleCallBacks = adModuleCallBacks
      }
    
-    private var reward: GADRewardedAd?
+    public var reward: GADRewardedAd?
   
 
     
-    func loadReward() {
+    public func loadReward() {
         print("Google Reward Loading Started 🔥")
         let request = GADRequest()
         GADRewardedAd.load(withAdUnitID: ServerConfig.sharedInstance.adNetworkIds?["google"]?.rewardId ?? "", request: request, completionHandler: { [self] ad, error in
@@ -27,7 +27,7 @@ class RewardAd: NSObject, GADFullScreenContentDelegate {
         })
     }
     
-    func showRewardAd() {
+    public func showRewardAd() {
         print("Google Rewards Show Triggered 🔥")
         if reward != nil, let root = rootController {
             reward?.present(fromRootViewController: root){
@@ -36,26 +36,26 @@ class RewardAd: NSObject, GADFullScreenContentDelegate {
     }
     
     
-    func ad(_ ad: any GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: any Error) {
+    public  func ad(_ ad: any GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: any Error) {
        print("Google Reward Ad Failed ❌")
        adModuleCallBacks?.onFailed?()
    }
    
    
-    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    public func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
      
        print("Google Reward Ad Presented🔥")
        adModuleCallBacks?.onAdStarted?()
      }
    
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    public func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
      
        print("Google Reward DiD Dismissed 🔥")
         reward = nil
        adModuleCallBacks?.onCloseEvent?()
    }
    
-    func adWillDismissFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
+    public func adWillDismissFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
        print("Google Reward Will Dismissed 🔥")
         reward = nil
        adModuleCallBacks?.onCloseEvent?()

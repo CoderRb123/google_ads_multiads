@@ -10,37 +10,38 @@ import UIKit
 
 import GoogleMobileAds
 
-class GoogleAds : NetworkInterface{
-    func initNetwork()  -> Bool {
+@available(iOS 13.0, *)
+public class GoogleAds : @preconcurrency NetworkInterface{
+    public func initNetwork()  -> Bool {
         DispatchQueue.main.async {
             GADMobileAds.sharedInstance().start(completionHandler: nil)
         }
         return true
     }
     
-    func getAdUnits() -> [Any] {
+    public func getAdUnits() -> [Any] {
       
         return []
     }
     
-    func isNetworkInit() -> Bool {
+    public func isNetworkInit() -> Bool {
        
         return false
     }
     
-    func loadInterAd(adModuleCallBacks: AdModuleWithCallBacks?) {
+    public func loadInterAd(adModuleCallBacks: AdModuleWithCallBacks?) {
        
     }
     
-    func showInterAd(adModuleCallBacks: AdModuleWithCallBacks?) {
+    public func showInterAd(adModuleCallBacks: AdModuleWithCallBacks?) {
       
     }
     
-    func isInterAdLoaded() -> Bool {
+    public  func isInterAdLoaded() -> Bool {
         return false
     }
     
-    func loadAndShowInterAd(adModuleCallBacks: AdModuleWithCallBacks?) {
+    @MainActor public func loadAndShowInterAd(adModuleCallBacks: AdModuleWithCallBacks?) {
        
         let inter = InterstitialAd.sharedInstance
         inter.adModuleCallBacks = adModuleCallBacks
@@ -48,47 +49,47 @@ class GoogleAds : NetworkInterface{
 //        InterstitialAd(adModuleCallBacks: adModuleCallBacks).loadInterstitial()
     }
     
-    func loadRewardAd(adModuleCallBacks: AdModuleWithCallBacks?) {
+    public func loadRewardAd(adModuleCallBacks: AdModuleWithCallBacks?) {
        
     }
     
-    func showRewardAd(adModuleCallBacks: AdModuleWithCallBacks?) {
+    public  func showRewardAd(adModuleCallBacks: AdModuleWithCallBacks?) {
        
     }
     
-    func isRewardAdLoaded() -> Bool {
+    public func isRewardAdLoaded() -> Bool {
         return false
     }
     
-    func loadAndShowRewardAd(adModuleCallBacks:AdModuleWithCallBacks?) {
+    @MainActor public func loadAndShowRewardAd(adModuleCallBacks:AdModuleWithCallBacks?) {
         let rewards = RewardAd.sharedInstance
         rewards.adModuleCallBacks = adModuleCallBacks
         rewards.loadReward()
     }
     
-    func loadRewardInter(adModuleCallBacks: AdModuleWithCallBacks?) {
+    public func loadRewardInter(adModuleCallBacks: AdModuleWithCallBacks?) {
         
     }
     
-    func showRewardInter(adModuleCallBacks: AdModuleWithCallBacks?) {
+    public func showRewardInter(adModuleCallBacks: AdModuleWithCallBacks?) {
        
     }
     
-    func isRewardInterAdLoaded() -> Bool {
+    public  func isRewardInterAdLoaded() -> Bool {
         return false
     }
     
-    func loadAndShowRewardInter(adModuleCallBacks: AdModuleWithCallBacks?) {
+    public  func loadAndShowRewardInter(adModuleCallBacks: AdModuleWithCallBacks?) {
         
     }
     
-    func getNativeAd() -> UIView? {
+    public  func getNativeAd() -> UIView? {
 //        return GoogleNativeAd(height: 200.0, width: 300.0, from: AdConfigDataModel?)
         
         return nil
     }
     
-    func getBannerAd() -> UIView? {
+    public func getBannerAd() -> UIView? {
         return nil
     }
     

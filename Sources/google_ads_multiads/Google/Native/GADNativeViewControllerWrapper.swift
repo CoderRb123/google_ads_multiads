@@ -10,30 +10,30 @@ import SwiftUI
 import MultiAdsInterface
 
 @available(iOS 13.0, *)
-struct GADNativeViewControllerWrapper : UIViewControllerRepresentable {
+public struct GADNativeViewControllerWrapper : UIViewControllerRepresentable {
 
-  func makeUIViewController(context: Context) -> UIViewController {
+    public func makeUIViewController(context: Context) -> UIViewController {
     let viewController = GADNativeViewController()
     return viewController
   }
 
-  func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
+    public func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
 
 }
 
 
 
-struct GoogleNativeAd : View{
+public struct GoogleNativeAd : View{
     
-    var height:CGFloat
-    var width:CGFloat
-    var from:AdConfigDataModel?
-    var paddingFrame =  10.0
-    var paddingDottedLine =  UIDevice.current.userInterfaceIdiom == .pad ? 10.0 :8.0
-    var yellowTilePadding =  UIDevice.current.userInterfaceIdiom == .pad ? 20.0 :8.0
+    public  var height:CGFloat
+    public   var width:CGFloat
+    public   var from:AdConfigDataModel?
+    public   var paddingFrame =  10.0
+    public  var paddingDottedLine =  UIDevice.current.userInterfaceIdiom == .pad ? 10.0 :8.0
+    public  var yellowTilePadding =  UIDevice.current.userInterfaceIdiom == .pad ? 20.0 :8.0
     
     
-    init(height: CGFloat, width: CGFloat,from:AdConfigDataModel?) {
+    public  init(height: CGFloat, width: CGFloat,from:AdConfigDataModel?) {
         self.height = height
         self.width = width
         self.from = from
@@ -43,7 +43,7 @@ struct GoogleNativeAd : View{
     }
 
     @available(iOS 13.0, *)
-    var body: some View{
+    public var body: some View{
         let calPadding = min(width * 1.5 / 100, 10)
         
         if(!ServerConfig.sharedInstance.globalAdStatus){
