@@ -1,0 +1,60 @@
+{
+  "originHash" : "379d92785236ed6fd4577706b31707d3a8efb45f75d2c1809734f7bf41f25ffd",
+  "pins" : [
+    {
+      "identity" : "ipapi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/arturgrigor/IPAPI.git",
+      "state" : {
+        "revision" : "7394135f9162ab7127a5ebd94d48e797dc516414",
+        "version" : "3.0.0"
+      }
+    },
+    {
+      "identity" : "keychain-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/evgenyneu/keychain-swift.git",
+      "state" : {
+        "revision" : "5e1b02b6a9dac2a759a1d5dbc175c86bd192a608",
+        "version" : "24.0.0"
+      }
+    },
+    {
+      "identity" : "multiadsinterface",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CoderRb123/MultiAdsInterface.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "48e67ec82b860bd70c17ff95e461f174443c1af2"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-mobile-ads",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7778cc1ab037c10dbbe026959e51e616bd961be9"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-user-messaging-platform",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git",
+      "state" : {
+        "revision" : "708a282840c2171ee63bd93b87afa49fe507d70e",
+        "version" : "2.7.0"
+      }
+    },
+    {
+      "identity" : "swiftyjson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyJSON/SwiftyJSON.git",
+      "state" : {
+        "revision" : "af76cf3ef710b6ca5f8c05f3a31307d44a3c5828",
+        "version" : "5.0.2"
+      }
+    }
+  ],
+  "version" : 3
+}
