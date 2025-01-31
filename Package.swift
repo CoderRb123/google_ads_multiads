@@ -12,7 +12,7 @@ let package = Package(
             targets: ["google_ads_multiads"]),
     ],
     dependencies : [
-        .package(name:"MultiAdsInterface",url: "https://github.com/CoderRb123/MultiAdsInterface.git",branch: "master"),
+        .package(name:"MultiAdsInterface",url: "https://github.com/CoderRb123/MultiAdsInterface.git",branch: "main"),
         
             .package(name:"GoogleMobileAds",url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",branch: "main"),
     ],
