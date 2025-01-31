@@ -79,8 +79,10 @@ public class GoogleAds : @preconcurrency NetworkInterface{
         return false
     }
     
-    public  func loadAndShowRewardInter(adModuleCallBacks: AdModuleWithCallBacks?) {
-        
+    @MainActor public  func loadAndShowRewardInter(adModuleCallBacks: AdModuleWithCallBacks?) {
+        let rewards = RewardInterAd.sharedInstance
+        rewards.adModuleCallBacks = adModuleCallBacks
+        rewards.loadReward()
     }
     
     public  func getNativeAd() -> UIView? {
