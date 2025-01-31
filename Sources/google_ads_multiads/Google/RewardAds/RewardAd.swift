@@ -16,7 +16,7 @@ public class RewardAd: NSObject, GADFullScreenContentDelegate {
   
 
     
-    public func loadReward() {
+    @MainActor  public func loadReward() {
         print("Google Reward Loading Started 🔥")
         let request = GADRequest()
         GADRewardedAd.load(withAdUnitID: ServerConfig.sharedInstance.adNetworkIds?["google"]?.rewardId ?? "", request: request, completionHandler: { [self] ad, error in
@@ -27,7 +27,7 @@ public class RewardAd: NSObject, GADFullScreenContentDelegate {
         })
     }
     
-    public func showRewardAd() {
+    @MainActor public func showRewardAd() {
         print("Google Rewards Show Triggered 🔥")
         if reward != nil, let root = rootController {
             reward?.present(fromRootViewController: root){

@@ -12,7 +12,7 @@ class RewardInterAd: NSObject, GADFullScreenContentDelegate {
 //        loadReward()
 //    }
     
-    public func loadReward(config:AdConfigDataModel?,onComplete:@escaping ()->Void) {
+    @MainActor  public func loadReward(config:AdConfigDataModel?,onComplete:@escaping ()->Void) {
         common.onComplete = onComplete
         var localConfig = config
         if(localConfig == nil){
@@ -38,7 +38,7 @@ class RewardInterAd: NSObject, GADFullScreenContentDelegate {
        
     }
     
-    public  func showRewardAd(onComplete:@escaping ()->Void) {
+    @MainActor   public  func showRewardAd(onComplete:@escaping ()->Void) {
         if reward != nil, let root = rootController {
             reward?.present(fromRootViewController: root){
 

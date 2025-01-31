@@ -17,7 +17,7 @@ public class InterstitialAd: NSObject, GADFullScreenContentDelegate {
     
     public var interstitial: GADInterstitialAd?
     
-    public func loadInterstitial() {
+    @MainActor public func loadInterstitial() {
         print("Google Inter Loading Started 🔥")
         let request = GADRequest()
         GADInterstitialAd.load(withAdUnitID: ServerConfig.sharedInstance.adNetworkIds?["google"]?.interId ?? "", request: request, completionHandler: { [self] ad, error in
@@ -28,7 +28,7 @@ public class InterstitialAd: NSObject, GADFullScreenContentDelegate {
         })
     }
 
-    public func showInterstitialAds() {
+    @MainActor public func showInterstitialAds() {
         print("Google Inter Show Triggered 🔥")
         if interstitial != nil, let root = rootController {
             interstitial?.present(fromRootViewController: root)

@@ -69,7 +69,7 @@ public class GADNativeViewController: UIViewController {
   /// Refreshes the native ad.
     public func refreshAd() {
     adLoader = GADAdLoader(
-      adUnitID: adUnitID ?? "", rootViewController: self,
+        adUnitID: adUnitID, rootViewController: self,
       adTypes: [.native], options: nil)
     adLoader.delegate = self
     adLoader.load(GADRequest())
