@@ -48,12 +48,7 @@ public class InterstitialAd: NSObject, GADFullScreenContentDelegate {
         adModuleCallBacks?.onAdStarted?()
       }
     
-    public  func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-      
-        print("Google Inter DiD Dismissed 🔥")
-        interstitial = nil
-        adModuleCallBacks?.onCloseEvent?()
-    }
+
     
     public  func adWillDismissFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
         print("Google Inter Will Dismissed 🔥")

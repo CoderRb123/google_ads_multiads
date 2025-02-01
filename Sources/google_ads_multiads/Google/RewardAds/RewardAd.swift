@@ -48,13 +48,6 @@ public class RewardAd: NSObject, GADFullScreenContentDelegate {
        adModuleCallBacks?.onAdStarted?()
      }
    
-    public func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-     
-       print("Google Reward DiD Dismissed 🔥")
-        reward = nil
-       adModuleCallBacks?.onCloseEvent?()
-   }
-   
     public func adWillDismissFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
        print("Google Reward Will Dismissed 🔥")
         reward = nil

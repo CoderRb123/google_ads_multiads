@@ -53,12 +53,6 @@ class RewardInterAd: NSObject, GADFullScreenContentDelegate {
        adModuleCallBacks?.onAdStarted?()
      }
    
-    public func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-     
-       print("Google Reward Inter DiD Dismissed 🔥")
-        reward = nil
-       adModuleCallBacks?.onCloseEvent?()
-   }
    
     public func adWillDismissFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
        print("Google Reward Inter Will Dismissed 🔥")
