@@ -5,7 +5,6 @@ import PackageDescription
 
 let package = Package(
     name: "google_ads_multiads",
-    
     products: [
         .library(
             name: "google_ads_multiads",
@@ -13,8 +12,7 @@ let package = Package(
     ],
     dependencies : [
         .package(name:"MultiAdsInterface",url: "https://github.com/CoderRb123/MultiAdsInterface.git",branch: "main"),
-        
-            .package(name:"GoogleMobileAds",url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",branch: "main"),
+        .package(name:"GoogleMobileAds",url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",branch: "main"),
     ],
     targets: [
         .target(
