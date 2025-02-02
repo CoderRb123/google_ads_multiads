@@ -1,5 +1,5 @@
 {
-  "originHash" : "f2edc80f4f976e528024ad7f9971e27488413ceefc1ae766db1b5e3482c168a0",
+  "originHash" : "6dff42f51866acddbcc0c70e8519930fad90b172fdafc760c55abe15f1af1208",
   "pins" : [
     {
       "identity" : "ipapi",
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/CoderRb123/MultiAdsInterface.git",
       "state" : {
-        "revision" : "b21369848ed49609cd34c9eae1ccda2cbe6eb643",
-        "version" : "1.0.3"
+        "revision" : "7ea4b564add8898f4dfaa3818d0adddcb2572260",
+        "version" : "1.0.4"
       }
     },
     {
