@@ -12,6 +12,7 @@ import MultiAdsInterface
 // This sample code is based on Google's examples
 // https://github.com/googleads/googleads-mobile-ios-examples/releases/tag/7.22
 
+@available(iOS 13.0, *)
 public class GADNativeViewController: UIViewController {
     
     
@@ -95,13 +96,15 @@ public class GADNativeViewController: UIViewController {
   }
 }
 
- extension GADNativeViewController: @preconcurrency GADVideoControllerDelegate {
+@available(iOS 13.0, *)
+extension GADNativeViewController: @preconcurrency GADVideoControllerDelegate {
 
      public func videoControllerDidEndVideoPlayback(_ videoController: GADVideoController) {
     print("Video playback has ended.")
   }
 }
 
+@available(iOS 13.0, *)
 extension GADNativeViewController: @preconcurrency GADNativeAdLoaderDelegate {
 
     public func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
@@ -183,6 +186,7 @@ extension GADNativeViewController: @preconcurrency GADNativeAdLoaderDelegate {
 
 // MARK: - GADNativeAdDelegate implementation
 
+@available(iOS 13.0, *)
 extension GADNativeViewController: @preconcurrency GADNativeAdDelegate {
 
     public nonisolated func nativeAdDidRecordClick(_ nativeAd: GADNativeAd) {
