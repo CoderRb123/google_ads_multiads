@@ -85,13 +85,12 @@ public class GoogleAds : @preconcurrency NetworkInterface{
         rewards.loadReward()
     }
     
-    public  func getNativeAd() -> UIView? {
-//        return GoogleNativeAd(height: 200.0, width: 300.0, from: AdConfigDataModel?)
-        
-        return nil
+    public  func getNativeAd(height:Double?,width:Double?,from:String?) -> UIView? {
+    
+        return GoogleNativeAd(height: height ?? 200.0, width: width ?? 300.0, from:from ?? "default")
     }
     
-    public func getBannerAd() -> UIView? {
+    public func getBannerAd(from:String?) -> UIView? {
         return nil
     }
     

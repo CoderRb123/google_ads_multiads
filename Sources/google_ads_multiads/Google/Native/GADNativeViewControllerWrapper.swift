@@ -27,7 +27,7 @@ public struct GoogleNativeAd : View{
     
     public  var height:CGFloat
     public   var width:CGFloat
-    public   var from:AdConfigDataModel?
+    public   var from:String?
     public   var paddingFrame =  10.0
     public  var paddingDottedLine =  UIDevice.current.userInterfaceIdiom == .pad ? 10.0 :8.0
     public  var yellowTilePadding =  UIDevice.current.userInterfaceIdiom == .pad ? 20.0 :8.0
@@ -37,8 +37,9 @@ public struct GoogleNativeAd : View{
         self.height = height
         self.width = width
         self.from = from
-        if(from == nil){
-            self.from = ServerConfig.sharedInstance.screenConfig?["default"]
+        if(from != nil){
+            let server = ServerConfig.sharedInstance.screenConfig?[from]
+            self.from = server ?? ServerConfig.sharedInstance.screenConfig?["default"]
         }
     }
 
