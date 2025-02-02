@@ -9,9 +9,21 @@ import MultiAdsInterface
 import UIKit
 
 import GoogleMobileAds
+import SwiftUICore
 
 @available(iOS 13.0, *)
 public class GoogleAds : @preconcurrency NetworkInterface{
+    @MainActor public func getNativeAd(height: Double?, width: Double?, from: String?) -> ViewWrapper {
+       
+        return ViewWrapper(v: GoogleNativeAd(height: height ?? 200.0, width: width ?? 300.0,
+                                             from: from ?? "default"))
+    }
+    
+    public func getBannerAd(from: String?) -> ViewWrapper {
+       
+        return ViewWrapper(v: VStack{})
+    }
+    
     public func initNetwork()  -> Bool {
         DispatchQueue.main.async {
             GADMobileAds.sharedInstance().start(completionHandler: nil)
@@ -85,13 +97,6 @@ public class GoogleAds : @preconcurrency NetworkInterface{
         rewards.loadReward()
     }
     
-    public  func getNativeAd(height:Double?,width:Double?,from:String?) -> any View {
-    
-        return GoogleNativeAd(height: height ?? 200.0, width: width ?? 300.0, from:from ?? "default")
-    }
-    
-    public func getBannerAd(from:String?) ->  any View {
-        return VStack {}
-    }
+  
     
 }
