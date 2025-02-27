@@ -26,7 +26,7 @@ public class GoogleAds : @preconcurrency NetworkInterface{
     
     public func initNetwork()  -> Bool {
         DispatchQueue.main.async {
-            GADMobileAds.sharedInstance().start(completionHandler: nil)
+            MobileAds.shared.start(completionHandler: nil)
         }
         return true
     }
@@ -55,7 +55,7 @@ public class GoogleAds : @preconcurrency NetworkInterface{
     
     @MainActor public func loadAndShowInterAd(adModuleCallBacks: AdModuleWithCallBacks?) {
        
-        let inter = InterstitialAd.sharedInstance
+        let inter = InterstitialAdGoogle.sharedInstance
         inter.adModuleCallBacks = adModuleCallBacks
         inter.loadInterstitial()
 //        InterstitialAd(adModuleCallBacks: adModuleCallBacks).loadInterstitial()

@@ -4,10 +4,10 @@ import UIKit
 import MultiAdsInterface
 
 @available(iOS 13.0, *)
-public class InterstitialAd: NSObject, GADFullScreenContentDelegate {
+public class InterstitialAdGoogle: NSObject, FullScreenContentDelegate {
      
      
-     @MainActor public static let sharedInstance = InterstitialAd(adModuleCallBacks: nil)
+    @MainActor public static let sharedInstance = InterstitialAdGoogle(adModuleCallBacks: nil)
     
     public var adModuleCallBacks:AdModuleWithCallBacks?
     
@@ -15,34 +15,36 @@ public class InterstitialAd: NSObject, GADFullScreenContentDelegate {
         self.adModuleCallBacks = adModuleCallBacks
     }
     
-    public var interstitial: GADInterstitialAd?
+    public var interstitial: InterstitialAd?
     
     @MainActor public func loadInterstitial() {
         print("Google Inter Loading Started 🔥")
-        let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: ServerConfig.sharedInstance.adNetworkIds?["google"]?.interId ?? "", request: request, completionHandler: { [self] ad, error in
-            if ad != nil { interstitial = ad }
-            interstitial?.fullScreenContentDelegate = self
-            adModuleCallBacks?.onAdLoaded?()
-            showInterstitialAds()
-        })
+        let request = Request()
+        InterstitialAd.load(
+            with: ServerConfig.sharedInstance.adNetworkIds?["google"]?.interId ?? "", request: request, completionHandler: { [self] ad, error in
+                if ad != nil { interstitial = ad }
+                interstitial?.fullScreenContentDelegate = self
+                adModuleCallBacks?.onAdLoaded?()
+                showInterstitialAds()
+            }
+        )
     }
 
     @MainActor public func showInterstitialAds() {
         print("Google Inter Show Triggered 🔥")
         if interstitial != nil, let root = rootController {
-            interstitial?.present(fromRootViewController: root)
+            interstitial?.present(from: root)
         }
     }
 
     
-    public func ad(_ ad: any GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: any Error) {
+    public func ad(_ ad: any FullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: any Error) {
         print("Google Inter Ad Failed ❌")
         adModuleCallBacks?.onFailed?()
     }
     
     
-    public func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    public func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
       
         print("Google Inter Ad Presented🔥")
         adModuleCallBacks?.onAdStarted?()
@@ -50,7 +52,7 @@ public class InterstitialAd: NSObject, GADFullScreenContentDelegate {
     
 
     
-    public  func adWillDismissFullScreenContent(_ ad: any GADFullScreenPresentingAd) {
+    public  func adWillDismissFullScreenContent(_ ad: any FullScreenPresentingAd) {
         print("Google Inter Will Dismissed 🔥")
         interstitial = nil
         adModuleCallBacks?.onCloseEvent?()
