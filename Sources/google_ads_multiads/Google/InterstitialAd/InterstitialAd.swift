@@ -33,6 +33,7 @@ public class InterstitialAdGoogle: NSObject, FullScreenContentDelegate {
     @MainActor public func showInterstitialAds() {
         print("Google Inter Show Triggered 🔥")
         if interstitial != nil, let root = rootController {
+            print("Google Inter Present Triggered 🔥")
             interstitial?.present(from: root)
         }
     }
