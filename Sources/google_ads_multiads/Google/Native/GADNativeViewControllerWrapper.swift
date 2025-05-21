@@ -100,7 +100,7 @@ public struct GoogleNativeAd : View{
                             .padding(.zero)
                     }else{
                         if(config!.showAds){
-                            if(config!.native == 0){
+                            if(config!.native == 1){
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 18)
                                         .fill(.white)
