@@ -69,6 +69,7 @@ public class GADNativeViewController: UIViewController {
 
   /// Refreshes the native ad.
     public func refreshAd() {
+        print("AdMob Native Id :- \(adUnitID)")
         adLoader = AdLoader(
         adUnitID: adUnitID, rootViewController: self,
       adTypes: [.native], options: nil)
