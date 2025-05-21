@@ -102,28 +102,10 @@ public struct GoogleNativeAd : View{
                         if(config!.showAds){
                             if(config!.native == 1){
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 18)
-                                        .fill(.white)
-                                        .shadow(
-                                               color: Color.black.opacity(0.3),
-                                               radius: 0,                           x: 0,
-                                               y: 5
-                                        )
-                                    
-                                    
-                                    Group{
-                                        Rectangle()
-                                            .strokeBorder(Color(ColorFunctions.hexStringToUIColor(hex: "#ffce64")),style: StrokeStyle(lineWidth: 3, dash: [10]))
-                                                   .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                                   .padding(.vertical,paddingDottedLine)
-                                                   .padding(.horizontal,calPadding)
-                                                  
-                                        GADNativeViewControllerWrapper() .padding(.vertical,yellowTilePadding).background(Color(ColorFunctions.hexStringToUIColor(hex: "#ffce64")).opacity(0.3))
-                                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                            .padding(.vertical,10)
-                                            .padding(.horizontal,calPadding)
-                                    }
-                                   
+                                    GADNativeViewControllerWrapper() .padding(.vertical,yellowTilePadding).background(Color(ColorFunctions.hexStringToUIColor(hex: "#ffce64")).opacity(0.3))
+                                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                        .padding(.vertical,10)
+                                        .padding(.horizontal,calPadding)
                                 }.frame(height: 320)
                                     .padding(10)
                             }else{
