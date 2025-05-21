@@ -1,5 +1,5 @@
 //
-//  GADNativeViewWrapper.swift
+//  GADNativeMiniViewWrapper.swift
 //  AdmobNativeSample
 //
 //  Created by Sakura on 2021/05/07.
@@ -55,10 +55,7 @@ public struct GoogleNativeMiniAd : View{
                 self.config = server!
             }else{
                 self.config = defaultConfig!
-
             }
-            
-           
         } else{
             self.config =  ServerConfig.sharedInstance.screenConfig?["default"]
             print("From is null - [Google Native Mini]")
@@ -80,10 +77,8 @@ public struct GoogleNativeMiniAd : View{
         Group {
             if(adLoader || config == nil){
                 VStack {
-                    Spacer()
-                    Text("Ad Loading...")
-                    Spacer()
-                } .frame(width: 250,height: 250)
+                  
+                } .frame(width: 0,height: 0)
                     
             }else{
                 VStack {
@@ -93,14 +88,7 @@ public struct GoogleNativeMiniAd : View{
                             .padding(.zero)
                     }else{
                         if(config!.showAds){
-                            if(config!.native == 1){
-                                GADNativeMiniViewControllerWrapper()
-                                   
-                            }else{
-                                VStack {}
-                                    .frame(width: 0,height: 0)
-                                    .padding(.zero)
-                            }
+                            GADNativeMiniViewControllerWrapper()
                            
                         }else{
                             VStack {}
