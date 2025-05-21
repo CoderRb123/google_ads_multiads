@@ -14,8 +14,8 @@ import MultiAdsInterface
 @available(iOS 14.0, *)
 public struct BannerViewPrivate : View {
     public var body:  some  View {
-        BannerViewContainer(AdSizeBanner)
-            .frame(height: AdSizeBanner.size.height)
+        BannerViewContainer(AdSizeFluid)
+            .frame(height: AdSizeFluid.size.height)
     }
 }
 
@@ -64,10 +64,9 @@ public struct GoogleBannerAd: View {
         Group {
             if(adLoader || config == nil){
                 VStack {
-                    Spacer()
-                    Text("Ad Loading...")
-                    Spacer()
-                } .frame(width: 250,height: 250)
+                 
+                } .frame(width: 0,height: 0)
+                    .padding(.zero)
                     
             }else{
                 if(!ServerConfig.sharedInstance.globalAdStatus){
@@ -84,10 +83,7 @@ public struct GoogleBannerAd: View {
                     }
                 }
             }
-            VStack {}
-                .frame(width: 0,height: 0)
-                .padding(.zero)
-            
+           
         }
         .onAppear {
             configration()
