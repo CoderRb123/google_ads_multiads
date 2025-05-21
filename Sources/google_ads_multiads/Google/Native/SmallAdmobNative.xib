@@ -14,7 +14,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L39-RW-Fxr" userLabel="MVIew">
                     <rect key="frame" x="0.0" y="0.0" width="100.66666666666667" height="101"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5W0-2i-Isd" userLabel="Icon View">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5W0-2i-Isd" userLabel="iconView">
                             <rect key="frame" x="5" y="0.0" width="100" height="100"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -104,6 +104,7 @@
                 <outlet property="callToActionView" destination="9ag-e3-7oH" id="Uh9-xd-ccJ"/>
                 <outlet property="headlineView" destination="DKj-id-Sm4" id="fwg-CO-DrR"/>
                 <outlet property="storeView" destination="pWT-IG-tgy" id="f3q-8l-We7"/>
+                <outlet property="iconView" destination="5W0-2i-Isd" id="f3q-8l-We2"/>
             </connections>
             <point key="canvasLocation" x="-50.000000000000007" y="652.58152173913049"/>
         </view>
