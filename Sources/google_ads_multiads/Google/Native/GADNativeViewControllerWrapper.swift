@@ -42,7 +42,7 @@ public struct GoogleNativeAd : View{
         if(from != nil){
             let server = ServerConfig.sharedInstance.screenConfig?[from!]
             config = server ?? ServerConfig.sharedInstance.screenConfig?["default"]
-            print("From is not null - [Google Native]")
+            print("From is not null - [Google Native] \(config)")
         }else{
             config =  ServerConfig.sharedInstance.screenConfig?["default"]
             print("From is null - [Google Native]")
