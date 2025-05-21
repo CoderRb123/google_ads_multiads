@@ -15,9 +15,7 @@ import MultiAdsInterface
 public struct BannerViewPrivate : View {
     public var body:  some  View {
         BannerViewContainer(AdSizeFluid)
-            .frame(width: AdSizeFluid.size.width,
-                           height: AdSizeFluid.size.height)
-           
+          
     }
 }
 
