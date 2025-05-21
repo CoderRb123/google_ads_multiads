@@ -104,9 +104,6 @@
                 <constraint firstAttribute="bottom" secondItem="9ag-e3-7oH" secondAttribute="bottom" constant="10" id="ywj-Y9-XCT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="mediaView" destination="6ux-FJ-pGo" id="aCz-rd-9bD"/>
-            </connections>
             <point key="canvasLocation" x="-50.000000000000007" y="652.58152173913049"/>
         </view>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
