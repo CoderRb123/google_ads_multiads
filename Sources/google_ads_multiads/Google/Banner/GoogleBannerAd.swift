@@ -9,39 +9,46 @@ import GoogleMobileAds
 import SwiftUI
 import MultiAdsInterface
 
+
+
+@available(iOS 14.0, *)
+public struct BannerViewPrivate : View {
+    public var body:  some  View {
+        BannerViewContainer(AdSizeBanner)
+            .frame(height: AdSizeBanner.size.height)
+    }
+}
+
 @available(iOS 14.0, *)
 public struct GoogleBannerAd: View {
   
-    public var from:String?
+
+    public var from:String
+    
 
     
     @State var adLoader: Bool = false
     @State public var config:AdConfigDataModel?
 
-    public init(from:String?) {
-        self.from = from ?? "default"
+    public init(from: String = "default") {
+        self.from = from
+       
     }
     
     public func configration() {
         self.adLoader = true
-        if(self.from != nil){
-            let defaultConfig:AdConfigDataModel? = ServerConfig.sharedInstance.screenConfig?["default"]
-            print("fething from : \(self.from!)")
-            let server:AdConfigDataModel? = ServerConfig.sharedInstance.screenConfig?[self.from!]
-            
-            print("fething server object : \(String(describing: server ?? nil))")
-            print("fething default object : \(String(describing: defaultConfig ?? nil))")
+        let defaultConfig:AdConfigDataModel? = ServerConfig.sharedInstance.screenConfig?["default"]
+        print("fething from : \(self.from)")
+        let server:AdConfigDataModel? = ServerConfig.sharedInstance.screenConfig?[self.from]
+        
+        print("fething server object : \(String(describing: server ?? nil))")
+        print("fething default object : \(String(describing: defaultConfig ?? nil))")
 
-            if(server != nil){
-                self.config = server!
-            }else{
-                self.config = defaultConfig!
+        if(server != nil){
+            self.config = server!
+        }else{
+            self.config = defaultConfig!
 
-            }
-           
-        } else{
-            self.config =  ServerConfig.sharedInstance.screenConfig?["default"]
-            print("From is null - [Google Banner]")
         }
         self.doLater()
     }
@@ -53,8 +60,7 @@ public struct GoogleBannerAd: View {
       }
     }
     public var body: some View {
-    GeometryReader { geometry in
-      let adSize = currentOrientationAnchoredAdaptiveBanner(width: geometry.size.width)
+   
         Group {
             if(adLoader || config == nil){
                 VStack {
@@ -70,8 +76,7 @@ public struct GoogleBannerAd: View {
                         .padding(.zero)
                 }else{
                     if(config!.showAds){
-                        BannerViewContainer(adSize)
-                          .frame(height: adSize.size.height)
+                        BannerViewPrivate()
                     }else{
                         VStack {}
                             .frame(width: 0,height: 0)
@@ -87,7 +92,7 @@ public struct GoogleBannerAd: View {
         .onAppear {
             configration()
         }
-    }
+
   
   }
 }
