@@ -39,6 +39,7 @@ public struct GoogleNativeAd : View{
         self.height = height
         self.width = width
         self.from = from
+        print("Server Config \(ServerConfig.sharedInstance.screenConfig)")
         if(from != nil){
             let server = ServerConfig.sharedInstance.screenConfig?[from!]
             config = server ?? ServerConfig.sharedInstance.screenConfig?["default"]
