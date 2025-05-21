@@ -96,8 +96,7 @@ public struct GoogleNativeAd : View{
                 VStack {
                     if(!ServerConfig.sharedInstance.globalAdStatus){
                         VStack {}
-                            .frame(width: 250,height: 250)
-                            .background(Color.white)
+                            .frame(width: 0,height: 0)
                             .padding(.zero)
                     }else{
                         if(config!.showAds){
@@ -129,14 +128,14 @@ public struct GoogleNativeAd : View{
                                     .padding(10)
                             }else{
                                 VStack {}
-                                    .frame(width: 250,height: 250)
-                                    .background(Color.red)
+                                    .frame(width: 0,height: 0)
+                                    .padding(.zero)
                             }
                            
                         }else{
                             VStack {}
-                                .frame(width: 250,height: 250)
-                                .background(Color.green)
+                                .frame(width: 0,height: 0)
+                                .padding(.zero)
                         }
                     }
                 }
