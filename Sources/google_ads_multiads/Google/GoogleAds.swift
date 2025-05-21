@@ -43,7 +43,7 @@ public class GoogleAds : @preconcurrency NetworkInterface{
     }
     
     @MainActor public func getBannerAd(from: String?) -> AnyView {
-        return AnyView(GoogleBannerAd(from: from ?? "default"))
+        return AnyView(GoogleNativeMiniAd(height: 350, width:  350 , from: from ?? "default"))
     }
     
     

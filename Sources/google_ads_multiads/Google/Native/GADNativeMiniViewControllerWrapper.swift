@@ -10,10 +10,10 @@ import SwiftUI
 import MultiAdsInterface
 
 @available(iOS 13.0, *)
-public struct GADNativeViewControllerWrapper : UIViewControllerRepresentable {
+public struct GADNativeMiniViewControllerWrapper : UIViewControllerRepresentable {
 
     public func makeUIViewController(context: Context) -> UIViewController {
-    let viewController = GADNativeViewController()
+    let viewController = GADNativeMiniViewController()
     return viewController
   }
 
@@ -24,7 +24,7 @@ public struct GADNativeViewControllerWrapper : UIViewControllerRepresentable {
 
 
 @available(iOS 13.0, *)
-public struct GoogleNativeAd : View{
+public struct GoogleNativeMiniAd : View{
     
     public  var height:CGFloat
     public   var width:CGFloat
@@ -61,7 +61,7 @@ public struct GoogleNativeAd : View{
            
         } else{
             self.config =  ServerConfig.sharedInstance.screenConfig?["default"]
-            print("From is null - [Google Native]")
+            print("From is null - [Google Native Mini]")
         }
         self.doLater()
     }
@@ -94,9 +94,8 @@ public struct GoogleNativeAd : View{
                     }else{
                         if(config!.showAds){
                             if(config!.native == 1){
-                                GADNativeViewControllerWrapper()
-                                    .frame(height: 320)
-                                    .padding(10)
+                                GADNativeMiniViewControllerWrapper()
+                                   
                             }else{
                                 VStack {}
                                     .frame(width: 0,height: 0)
