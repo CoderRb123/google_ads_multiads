@@ -90,11 +90,15 @@ public struct GoogleNativeAd : View{
                     Spacer()
                     Text("Ad Loading...")
                     Spacer()
-                }.frame(height: 250)
+                } .frame(width: 250,height: 250)
+                    
             }else{
                 VStack {
                     if(!ServerConfig.sharedInstance.globalAdStatus){
-                        VStack {}.padding(.zero)
+                        VStack {}
+                            .frame(width: 250,height: 250)
+                            .background(Color.white)
+                            .padding(.zero)
                     }else{
                         if(config!.showAds){
                             if(config!.native == 0){
@@ -124,11 +128,15 @@ public struct GoogleNativeAd : View{
                                 }.frame(height: 320)
                                     .padding(10)
                             }else{
-                                VStack {}.padding(.zero)
+                                VStack {}
+                                    .frame(width: 250,height: 250)
+                                    .background(Color.red)
                             }
                            
                         }else{
-                            VStack {}.padding(.zero)
+                            VStack {}
+                                .frame(width: 250,height: 250)
+                                .background(Color.green)
                         }
                     }
                 }
