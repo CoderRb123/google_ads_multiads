@@ -105,7 +105,6 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="adBadge" destination="hl4-7y-gXg" id="Bp7-FM-VVW"/>
                 <outlet property="advertiserView" destination="Zjv-ch-qcM" id="Ku9-M6-SEf"/>
                 <outlet property="callToActionView" destination="9ag-e3-7oH" id="Uh9-xd-ccJ"/>
                 <outlet property="headlineView" destination="DKj-id-Sm4" id="fwg-CO-DrR"/>
