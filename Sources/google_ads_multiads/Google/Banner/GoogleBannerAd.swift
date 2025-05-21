@@ -8,6 +8,7 @@
 import GoogleMobileAds
 import SwiftUI
 import MultiAdsInterface
+
 @available(iOS 14.0, *)
 public struct GoogleBannerAd: View {
   
@@ -54,8 +55,6 @@ public struct GoogleBannerAd: View {
     public var body: some View {
     GeometryReader { geometry in
       let adSize = currentOrientationAnchoredAdaptiveBanner(width: geometry.size.width)
-
-      
         Group {
             if(adLoader || config == nil){
                 VStack {
@@ -93,10 +92,11 @@ public struct GoogleBannerAd: View {
   }
 }
 
+@available(iOS 14.0, *)
 
 // [START create_banner_view]
 private struct BannerViewContainer: UIViewRepresentable {
-  let adSize: AdSize
+    let adSize: AdSize
 
   init(_ adSize: AdSize) {
     self.adSize = adSize
@@ -125,8 +125,10 @@ private struct BannerViewContainer: UIViewRepresentable {
 
     private(set) lazy var  bannerView: BannerView = {
       let banner = BannerView(adSize: parent.adSize)
+      let adUnitID = ServerConfig.sharedInstance.adNetworkIds?["google"]?.bannerId
+
       // [START load_ad]
-      banner.adUnitID = "ca-app-pub-3940256099942544/2435281174"
+      banner.adUnitID = adUnitID ?? "ca-app-pub-3940256099942544/2435281174"
       banner.load(Request())
       // [END load_ad]
       // [START set_delegate]
