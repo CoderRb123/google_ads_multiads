@@ -38,12 +38,13 @@ public struct GoogleNativeAd : View{
     public  init(height: CGFloat, width: CGFloat,from:String?) {
         self.height = height
         self.width = width
-        self.from = from
+        self.from = from ?? "default"
         print("Server Config \(ServerConfig.sharedInstance.screenConfig)")
         if(from != nil){
-            let server = ServerConfig.sharedInstance.screenConfig?[from!]
-            config = server ?? ServerConfig.sharedInstance.screenConfig?["default"]
-            print("From is not null - [Google Native] \(config)")
+            let defaultConfig  = ServerConfig.sharedInstance.screenConfig?["default"]
+            let server = ServerConfig.sharedInstance.screenConfig?[self.from!]
+            self.config = server ?? defaultConfig
+            print("From is not null - [Google Native] \(self.config)")
         }else{
             config =  ServerConfig.sharedInstance.screenConfig?["default"]
             print("From is null - [Google Native]")
