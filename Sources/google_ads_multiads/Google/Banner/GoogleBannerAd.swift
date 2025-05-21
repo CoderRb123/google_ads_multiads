@@ -14,8 +14,8 @@ import MultiAdsInterface
 @available(iOS 14.0, *)
 public struct BannerViewPrivate : View {
     public var body:  some  View {
-        BannerViewContainer(AdSizeLargeBanner)
-            .frame(height: AdSizeLargeBanner.size.height)
+        BannerViewContainer(AdSizeBanner)
+            .frame(height: AdSizeBanner.size.height)
            
     }
 }
