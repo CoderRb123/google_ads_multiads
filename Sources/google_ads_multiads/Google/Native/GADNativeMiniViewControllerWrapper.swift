@@ -89,7 +89,7 @@ public struct GoogleNativeMiniAd : View{
                     }else{
                         if(config!.showAds){
                             GADNativeMiniViewControllerWrapper()
-                                .frame(height: 101)
+                                .frame(width:403,height: 101)
                            
                         }else{
                             VStack {}
