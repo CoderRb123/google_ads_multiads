@@ -27,7 +27,7 @@ public struct BannerViewWrapper<Content: View>: View {
               Spacer()
               BannerViewContainer(adSize)
                 .frame(height: adSize.size.height)
-          }
+          }.ignoresSafeArea()
       }
     }
   
