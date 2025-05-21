@@ -9,32 +9,29 @@ import GoogleMobileAds
 import SwiftUI
 
 @available(iOS 14.0, *)
-struct BannerContentView: View {
-  let navigationTitle: String
-
-  // [START add_banner_to_view]
-    var body: some View {
+public struct BannerViewWrapper<Content: View>: View {
+  
+    let content: () -> Content
+    
+    public init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+    public var body: some View {
     GeometryReader { geometry in
       let adSize = currentOrientationAnchoredAdaptiveBanner(width: geometry.size.width)
 
-      VStack {
-        Spacer()
-        BannerViewContainer(adSize)
-          .frame(height: adSize.size.height)
+      ZStack {
+        content()
+          VStack {
+              BannerViewContainer(adSize)
+                .frame(height: adSize.size.height)
+          }
       }
     }
-    // [END add_banner_to_view]
-    .navigationTitle(navigationTitle)
+  
   }
 }
 
-@available(iOS 14.0, *)
-struct BannerContentView_Previews: PreviewProvider {
-   
-    static var previews: some View {
-    BannerContentView(navigationTitle: "Banner")
-  }
-}
 
 // [START create_banner_view]
 private struct BannerViewContainer: UIViewRepresentable {
