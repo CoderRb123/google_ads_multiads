@@ -37,18 +37,22 @@ public struct GoogleNativeAd : View{
     
     
     @State public var adLoader = false
-    @State public  var config:AdConfigDataModel?
+    @State public var config:AdConfigDataModel?
     public  init(height: CGFloat, width: CGFloat,from:String?) {
         self.height = height
         self.width = width
         self.from = from ?? "default"
         self.adLoader = true
-        print("Server Config \(ServerConfig.sharedInstance.screenConfig)")
         if(from != nil){
-            let defaultConfig  = ServerConfig.sharedInstance.screenConfig?["default"]
+            let defaultConfig = ServerConfig.sharedInstance.screenConfig?["default"]
+            print("fething from : \(self.from!)")
             let server = ServerConfig.sharedInstance.screenConfig?[self.from!]
+            
+            print("fething server object : \(String(describing: server ?? nil))")
+            print("fething default object : \(String(describing: defaultConfig ?? nil))")
+
             self.config = server ?? defaultConfig
-            print("From is not null - [Google Native] \(self.config)")
+           
         } else{
             config =  ServerConfig.sharedInstance.screenConfig?["default"]
             print("From is null - [Google Native]")
