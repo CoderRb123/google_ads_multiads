@@ -1,5 +1,5 @@
 {
-  "originHash" : "604e42e31c47cb4cdafee3d3c6908ee3c217e2f54278884a7a4f7d29a43dd884",
+  "originHash" : "df519c9fbef7e881c787eacd74fc1d9f3ff5cc33ba3f4dba34cf25b1a4061cbd",
   "pins" : [
     {
       "identity" : "ipapi",
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/CoderRb123/MultiAdsInterface.git",
       "state" : {
-        "revision" : "7ea4b564add8898f4dfaa3818d0adddcb2572260",
-        "version" : "1.0.4"
+        "revision" : "62d36aaa0e0877d1d6473236b56eaaf2657ef2b8",
+        "version" : "1.1.5"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
       "state" : {
-        "revision" : "ab4c3ec7546c7566fe49918fc9461df44e015537",
-        "version" : "12.2.0"
+        "revision" : "1f4e2201d986617a834326ad481be747ab481570",
+        "version" : "12.4.0"
       }
     },
     {
