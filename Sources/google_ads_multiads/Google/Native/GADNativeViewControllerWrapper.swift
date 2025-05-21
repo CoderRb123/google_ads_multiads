@@ -34,32 +34,34 @@ public struct GoogleNativeAd : View{
     public  var yellowTilePadding =  UIDevice.current.userInterfaceIdiom == .pad ? 20.0 :8.0
     
     
-    public func doLater (){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            adLoader = false
-      }
-    }
     
-    @State var adLoader = false
-    @State var config:AdConfigDataModel?
+    
+    @State public var adLoader = false
+    @State public  var config:AdConfigDataModel?
     public  init(height: CGFloat, width: CGFloat,from:String?) {
         self.height = height
         self.width = width
         self.from = from ?? "default"
-        adLoader = true
+        self.adLoader = true
         print("Server Config \(ServerConfig.sharedInstance.screenConfig)")
         if(from != nil){
             let defaultConfig  = ServerConfig.sharedInstance.screenConfig?["default"]
             let server = ServerConfig.sharedInstance.screenConfig?[self.from!]
             self.config = server ?? defaultConfig
             print("From is not null - [Google Native] \(self.config)")
-        }else{
+        } else{
             config =  ServerConfig.sharedInstance.screenConfig?["default"]
             print("From is null - [Google Native]")
         }
         doLater()
     }
-    
+    public func doLater (){
+       DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+           DispatchQueue.main.async {
+               self.adLoader = false
+           }
+      }
+    }
     
 
     @available(iOS 13.0, *)
