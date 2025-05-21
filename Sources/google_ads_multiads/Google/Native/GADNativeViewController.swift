@@ -34,7 +34,7 @@ public class GADNativeViewController: UIViewController {
     super.viewDidLoad()
 
     guard
-      let nibObjects = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil),
+      let nibObjects = Bundle.module.loadNibNamed("NativeAdView", owner: nil, options: nil),
       let adView = nibObjects.first as? NativeAdView
     else {
       print("Could not load nib file for adView")

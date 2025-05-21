@@ -18,7 +18,10 @@ let package = Package(
         .target(
             name: "google_ads_multiads",
             dependencies: ["MultiAdsInterface","GoogleMobileAds"],
-            path: "Sources"
+            path: "Sources",
+//            resources: [
+//             .process("google_ads_multiads/Native/NativeAdView.xib")
+//            ]
         ),
 
     ]
