@@ -14,8 +14,9 @@ import MultiAdsInterface
 @available(iOS 14.0, *)
 public struct BannerViewPrivate : View {
     public var body:  some  View {
-        BannerViewContainer(AdSizeFluid)
-            .frame(height: AdSizeFluid.size.height)
+        BannerViewContainer(AdSizeMediumRectangle)
+            .frame(height: AdSizeMediumRectangle.size.height)
+           
     }
 }
 
@@ -76,6 +77,7 @@ public struct GoogleBannerAd: View {
                 }else{
                     if(config!.showAds){
                         BannerViewPrivate()
+                        
                     }else{
                         VStack {}
                             .frame(width: 0,height: 0)
@@ -85,6 +87,7 @@ public struct GoogleBannerAd: View {
             }
            
         }
+       
         .onAppear {
             configration()
         }
