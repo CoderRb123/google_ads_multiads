@@ -90,11 +90,11 @@ public struct GoogleNativeAd : View{
                     Spacer()
                     Text("Ad Loading...")
                     Spacer()
-                }.frame(width: .infinity, height: 500)
+                }.frame(height: 250)
             }else{
                 VStack {
                     if(!ServerConfig.sharedInstance.globalAdStatus){
-                        VStack {}
+                        VStack {}.padding(.zero)
                     }else{
                         if(config!.showAds){
                             if(config!.native == 0){
@@ -115,9 +115,6 @@ public struct GoogleNativeAd : View{
                                                    .padding(.vertical,paddingDottedLine)
                                                    .padding(.horizontal,calPadding)
                                                   
-                                        
-                                        // Yellow Tile
-
                                         GADNativeViewControllerWrapper() .padding(.vertical,yellowTilePadding).background(Color(ColorFunctions.hexStringToUIColor(hex: "#ffce64")).opacity(0.3))
                                             .clipShape(RoundedRectangle(cornerRadius: 15.0))
                                             .padding(.vertical,10)
@@ -127,11 +124,11 @@ public struct GoogleNativeAd : View{
                                 }.frame(height: 320)
                                     .padding(10)
                             }else{
-                                VStack {}
+                                VStack {}.padding(.zero)
                             }
                            
                         }else{
-                            VStack {}
+                            VStack {}.padding(.zero)
                         }
                     }
                 }
