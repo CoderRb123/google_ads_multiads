@@ -42,12 +42,11 @@ public struct GoogleNativeAd : View{
         self.height = height
         self.width = width
         self.from = from ?? "default"
-        self.adLoader = true
-        configgration()
     }
     
-    public func configgration() {
-        if(from != nil){
+    public func configration() {
+        self.adLoader = true
+        if(self.from != nil){
             let defaultConfig:AdConfigDataModel? = ServerConfig.sharedInstance.screenConfig?["default"]
             print("fething from : \(self.from!)")
             let server:AdConfigDataModel? = ServerConfig.sharedInstance.screenConfig?[self.from!]
@@ -56,22 +55,22 @@ public struct GoogleNativeAd : View{
             print("fething default object : \(String(describing: defaultConfig ?? nil))")
 
             if(server != nil){
-                config = server!
-                print("seting config object : \(config)")
+                self.config = server!
+                print("seting config object : \(self.config)")
 
             }else{
 
-                config = defaultConfig!
-                print("seting default object : \(config)")
+                self.config = defaultConfig!
+                print("seting default object : \(self.config)")
 
             }
             
            
         } else{
-            config =  ServerConfig.sharedInstance.screenConfig?["default"]
+            self.config =  ServerConfig.sharedInstance.screenConfig?["default"]
             print("From is null - [Google Native]")
         }
-        doLater()
+        self.doLater()
     }
     public func doLater (){
        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -85,56 +84,61 @@ public struct GoogleNativeAd : View{
     @available(iOS 13.0, *)
     public var body: some View{
         let calPadding = min(width * 1.5 / 100, 10)
-        if(adLoader || config == nil){
-            VStack {
-                Spacer()
-                Text("Ad Loading...")
-                Spacer()
-            }.frame(width: .infinity, height: 500)
-        }else{
-            VStack {
-                if(!ServerConfig.sharedInstance.globalAdStatus){
-                    VStack {}
-                }else{
-                    if(config!.showAds){
-                        if(config!.native == 0){
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 18)
-                                    .fill(.white)
-                                    .shadow(
-                                           color: Color.black.opacity(0.3),
-                                           radius: 0,                           x: 0,
-                                           y: 5
-                                    )
-                                
-                                
-                                Group{
-                                    Rectangle()
-                                        .strokeBorder(Color(ColorFunctions.hexStringToUIColor(hex: "#ffce64")),style: StrokeStyle(lineWidth: 3, dash: [10]))
-                                               .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                               .padding(.vertical,paddingDottedLine)
-                                               .padding(.horizontal,calPadding)
-                                              
+        Group {
+            if(adLoader || config == nil){
+                VStack {
+                    Spacer()
+                    Text("Ad Loading...")
+                    Spacer()
+                }.frame(width: .infinity, height: 500)
+            }else{
+                VStack {
+                    if(!ServerConfig.sharedInstance.globalAdStatus){
+                        VStack {}
+                    }else{
+                        if(config!.showAds){
+                            if(config!.native == 0){
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 18)
+                                        .fill(.white)
+                                        .shadow(
+                                               color: Color.black.opacity(0.3),
+                                               radius: 0,                           x: 0,
+                                               y: 5
+                                        )
                                     
-                                    // Yellow Tile
+                                    
+                                    Group{
+                                        Rectangle()
+                                            .strokeBorder(Color(ColorFunctions.hexStringToUIColor(hex: "#ffce64")),style: StrokeStyle(lineWidth: 3, dash: [10]))
+                                                   .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                                   .padding(.vertical,paddingDottedLine)
+                                                   .padding(.horizontal,calPadding)
+                                                  
+                                        
+                                        // Yellow Tile
 
-                                    GADNativeViewControllerWrapper() .padding(.vertical,yellowTilePadding).background(Color(ColorFunctions.hexStringToUIColor(hex: "#ffce64")).opacity(0.3))
-                                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                                        .padding(.vertical,10)
-                                        .padding(.horizontal,calPadding)
-                                }
-                               
-                            }.frame(height: 320)
-                                .padding(10)
+                                        GADNativeViewControllerWrapper() .padding(.vertical,yellowTilePadding).background(Color(ColorFunctions.hexStringToUIColor(hex: "#ffce64")).opacity(0.3))
+                                            .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                            .padding(.vertical,10)
+                                            .padding(.horizontal,calPadding)
+                                    }
+                                   
+                                }.frame(height: 320)
+                                    .padding(10)
+                            }else{
+                                VStack {}
+                            }
+                           
                         }else{
                             VStack {}
                         }
-                       
-                    }else{
-                        VStack {}
                     }
                 }
             }
+        }
+        .onAppear{
+            configration()
         }
         
     }
