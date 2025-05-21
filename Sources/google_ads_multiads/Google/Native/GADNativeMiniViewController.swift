@@ -96,7 +96,7 @@ extension GADNativeMiniViewController: @preconcurrency NativeAdLoaderDelegate {
     // Populate the native ad view with the native ad assets.
     // The headline and mediaContent are guaranteed to be present in every native ad.
     (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
-    nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
+//    nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
 
    
     
@@ -110,8 +110,8 @@ extension GADNativeMiniViewController: @preconcurrency NativeAdLoaderDelegate {
     (nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
     nativeAdView.callToActionView?.isHidden = nativeAd.callToAction == nil
 
-//    (nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
-//    nativeAdView.iconView?.isHidden = nativeAd.icon == nil
+    (nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
+    nativeAdView.iconView?.isHidden = nativeAd.icon == nil
 
 //    (nativeAdView.starRatingView as? UIImageView)?.image = imageOfStars(from: nativeAd.starRating)
 //    nativeAdView.starRatingView?.isHidden = nativeAd.starRating == nil
