@@ -22,7 +22,9 @@ public struct BannerViewWrapper<Content: View>: View {
 
       ZStack {
         content()
+              .padding(.bottom,20)
           VStack {
+              Spacer()
               BannerViewContainer(adSize)
                 .frame(height: adSize.size.height)
           }
