@@ -73,7 +73,7 @@ public class GADNativeMiniViewController: UIViewController {
         adLoader = AdLoader(
         adUnitID: adUnitID, rootViewController: self,
       adTypes: [.native], options: nil)
-    adLoader.delegate = self
+      adLoader.delegate = self
         adLoader.load(Request())
   }
 
