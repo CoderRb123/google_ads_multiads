@@ -56,12 +56,8 @@ public struct GoogleNativeAd : View{
 
             if(server != nil){
                 self.config = server!
-                print("seting config object : \(self.config)")
-
             }else{
-
                 self.config = defaultConfig!
-                print("seting default object : \(self.config)")
 
             }
             

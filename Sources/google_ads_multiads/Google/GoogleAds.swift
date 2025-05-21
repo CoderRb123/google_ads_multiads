@@ -10,7 +10,7 @@ import UIKit
 
 import GoogleMobileAds
 import SwiftUICore
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 public class GoogleAds : @preconcurrency NetworkInterface{
     public func initNetwork(onSdkInitialized: @escaping () -> Void) -> Bool {
         DispatchQueue.main.async {
@@ -42,8 +42,8 @@ public class GoogleAds : @preconcurrency NetworkInterface{
         return AnyView(GoogleNativeAd(height: height ?? 350, width: width ?? 350 , from: from ?? "default"))
     }
     
-    public func getBannerAd(from: String?) -> AnyView {
-        return AnyView(VStack{})
+    @MainActor public func getBannerAd(from: String?) -> AnyView {
+        return AnyView(GoogleBannerAd(from: from))
     }
     
     

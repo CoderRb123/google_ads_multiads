@@ -7,28 +7,87 @@
 
 import GoogleMobileAds
 import SwiftUI
-
+import MultiAdsInterface
 @available(iOS 14.0, *)
-public struct BannerViewWrapper<Content: View>: View {
+public struct GoogleBannerAd: View {
   
-    let content: () -> Content
+    public var from:String?
+
     
-    public init(@ViewBuilder content: @escaping () -> Content) {
-        self.content = content
+    @State var adLoader: Bool = false
+    @State public var config:AdConfigDataModel?
+
+    public init(from:String?) {
+        self.from = from ?? "default"
+    }
+    
+    public func configration() {
+        self.adLoader = true
+        if(self.from != nil){
+            let defaultConfig:AdConfigDataModel? = ServerConfig.sharedInstance.screenConfig?["default"]
+            print("fething from : \(self.from!)")
+            let server:AdConfigDataModel? = ServerConfig.sharedInstance.screenConfig?[self.from!]
+            
+            print("fething server object : \(String(describing: server ?? nil))")
+            print("fething default object : \(String(describing: defaultConfig ?? nil))")
+
+            if(server != nil){
+                self.config = server!
+            }else{
+                self.config = defaultConfig!
+
+            }
+           
+        } else{
+            self.config =  ServerConfig.sharedInstance.screenConfig?["default"]
+            print("From is null - [Google Banner]")
+        }
+        self.doLater()
+    }
+    public func doLater (){
+       DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+           DispatchQueue.main.async {
+               self.adLoader = false
+           }
+      }
     }
     public var body: some View {
     GeometryReader { geometry in
       let adSize = currentOrientationAnchoredAdaptiveBanner(width: geometry.size.width)
 
-      ZStack {
-        content()
-              .padding(.bottom,20)
-          VStack {
-              Spacer()
-              BannerViewContainer(adSize)
-                .frame(height: adSize.size.height)
-          }.ignoresSafeArea()
-      }
+      
+        Group {
+            if(adLoader || config == nil){
+                VStack {
+                    Spacer()
+                    Text("Ad Loading...")
+                    Spacer()
+                } .frame(width: 250,height: 250)
+                    
+            }else{
+                if(!ServerConfig.sharedInstance.globalAdStatus){
+                    VStack {}
+                        .frame(width: 0,height: 0)
+                        .padding(.zero)
+                }else{
+                    if(config!.showAds){
+                        BannerViewContainer(adSize)
+                          .frame(height: adSize.size.height)
+                    }else{
+                        VStack {}
+                            .frame(width: 0,height: 0)
+                            .padding(.zero)
+                    }
+                }
+            }
+            VStack {}
+                .frame(width: 0,height: 0)
+                .padding(.zero)
+            
+        }
+        .onAppear {
+            configration()
+        }
     }
   
   }
