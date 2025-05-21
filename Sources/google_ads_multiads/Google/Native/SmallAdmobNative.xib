@@ -8,7 +8,7 @@
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GADTSmallTemplateView"/>
-        <view opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2X-7h-r2O" userLabel="Native Ad View" customClass="GADTTemplateView">
+        <view opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2X-7h-r2O" userLabel="Native Ad View" customClass="GADNativeAdView">
             <rect key="frame" x="0.0" y="0.0" width="403" height="101"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L39-RW-Fxr" userLabel="MVIew">
