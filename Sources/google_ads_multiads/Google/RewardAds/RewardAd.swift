@@ -29,9 +29,13 @@ public class RewardAd: NSObject, FullScreenContentDelegate {
     
     @MainActor public func showRewardAd() {
         print("Google Rewards Show Triggered 🔥")
-        if reward != nil, let root = rootController {
+        if(reward == nil){
+            adModuleCallBacks?.onFailed?()
+            return
+        }
+         if let root = rootController {
             reward?.present(from: root){
-            }
+        }
         }
     }
     
