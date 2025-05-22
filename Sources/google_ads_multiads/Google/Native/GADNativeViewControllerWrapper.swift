@@ -95,7 +95,7 @@ public struct GoogleNativeAd : View{
                         if(config!.showAds){
                             if(config!.native == 1){
                                 GADNativeViewControllerWrapper()
-                                    .frame(height: 402)
+                                    .frame(width:355,height: 402)
                                     .padding(10)
                             }else{
                                 VStack {}
