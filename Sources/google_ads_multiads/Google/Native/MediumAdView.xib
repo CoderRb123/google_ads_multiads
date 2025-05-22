@@ -186,7 +186,6 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="adBadge" destination="PfZ-cd-zxs" id="l4Z-NW-nRv"/>
                 <outlet property="advertiserView" destination="ic2-4I-EtF" id="l3s-ci-Wqi"/>
                 <outlet property="bodyView" destination="41W-IZ-S0S" id="Iwg-fc-zE1"/>
                 <outlet property="callToActionView" destination="Ekc-Zs-FHH" id="jEd-fy-AYv"/>

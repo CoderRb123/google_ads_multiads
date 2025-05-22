@@ -9,8 +9,6 @@ import GoogleMobileAds
 import SwiftUI
 import MultiAdsInterface
 
-    
-
 @available(iOS 14.0, *)
 public struct BannerViewPrivate : View {
     public var body:  some  View {
