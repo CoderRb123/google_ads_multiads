@@ -33,7 +33,11 @@ class RewardInterAd: NSObject, FullScreenContentDelegate {
     }
     
     @MainActor   public  func showRewardAd() {
-        if reward != nil, let root = rootController {
+        if(reward == nil){
+            adModuleCallBacks?.onFailed?()
+            return
+        }
+        if let root = rootController {
             print("Google Rewards Inter Show Triggered 🔥")
             reward?.present(from: root){
 
