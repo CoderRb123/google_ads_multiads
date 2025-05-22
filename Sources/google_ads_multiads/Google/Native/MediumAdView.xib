@@ -26,7 +26,7 @@
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="100"/>
+                                    <integer key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </button>
@@ -57,13 +57,13 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfZ-cd-zxs">
                                                     <rect key="frame" x="10" y="30" width="28" height="21"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="5e5-3M-FF3"/>
                                                         <constraint firstAttribute="width" constant="28" id="L2a-Ko-fWP"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.2274509804" green="0.4039215686" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemPinkColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKU-cb-NgA">
@@ -164,6 +164,11 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="1ne-Xk-CBH" secondAttribute="height" multiplier="16:9" id="kTC-ip-nfX"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -172,12 +177,21 @@
             </accessibility>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="qZf-ej-Zxg" secondAttribute="trailing" constant="10" id="1Rv-ij-HDB"/>
+                <constraint firstItem="1ne-Xk-CBH" firstAttribute="leading" secondItem="h2X-7h-r2O" secondAttribute="leading" constant="10" id="44l-Wy-0UV"/>
+                <constraint firstAttribute="trailing" secondItem="1ne-Xk-CBH" secondAttribute="trailing" constant="10" id="6oZ-po-J7a"/>
+                <constraint firstAttribute="trailingMargin" secondItem="1ne-Xk-CBH" secondAttribute="trailing" constant="10" id="9aJ-2f-CHP"/>
+                <constraint firstItem="1ne-Xk-CBH" firstAttribute="top" secondItem="h2X-7h-r2O" secondAttribute="topMargin" constant="10" id="Nft-Mu-V0Q"/>
                 <constraint firstItem="qZf-ej-Zxg" firstAttribute="leading" secondItem="h2X-7h-r2O" secondAttribute="leading" constant="10" id="OCX-hu-Rvd"/>
+                <constraint firstItem="qZf-ej-Zxg" firstAttribute="top" secondItem="1ne-Xk-CBH" secondAttribute="bottom" constant="10" id="Y5j-av-h5z"/>
                 <constraint firstItem="qZf-ej-Zxg" firstAttribute="top" secondItem="1ne-Xk-CBH" secondAttribute="bottom" id="aHY-Ht-nDt"/>
                 <constraint firstItem="1ne-Xk-CBH" firstAttribute="leading" secondItem="h2X-7h-r2O" secondAttribute="leading" id="cj9-Mw-8MR"/>
                 <constraint firstAttribute="trailing" secondItem="1ne-Xk-CBH" secondAttribute="trailing" id="gLW-Sf-wcR"/>
+                <constraint firstItem="1ne-Xk-CBH" firstAttribute="leading" secondItem="h2X-7h-r2O" secondAttribute="leadingMargin" constant="10" id="gMT-M3-VZJ"/>
                 <constraint firstItem="1ne-Xk-CBH" firstAttribute="top" secondItem="h2X-7h-r2O" secondAttribute="top" id="ipR-Fl-Mie"/>
+                <constraint firstItem="qZf-ej-Zxg" firstAttribute="top" secondItem="1ne-Xk-CBH" secondAttribute="bottom" constant="-10" id="pE7-wk-8b5"/>
+                <constraint firstItem="1ne-Xk-CBH" firstAttribute="top" secondItem="h2X-7h-r2O" secondAttribute="topMargin" constant="10" id="sT6-GG-rxV"/>
                 <constraint firstAttribute="bottom" secondItem="qZf-ej-Zxg" secondAttribute="bottom" id="sWi-Jm-MXA"/>
+                <constraint firstItem="1ne-Xk-CBH" firstAttribute="top" secondItem="h2X-7h-r2O" secondAttribute="top" constant="10" id="vrR-67-ntS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
@@ -200,6 +214,9 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
     </objects>
     <resources>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
