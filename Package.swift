@@ -17,12 +17,26 @@ let package = Package(
     targets: [
         .target(
             name: "google_ads_multiads",
-            dependencies: ["MultiAdsInterface","GoogleMobileAds"],
+            dependencies: [
+              "MultiAdsInterface",
+              "GoogleMobileAds",
+              "AppLovinSDK",
+              "MetaAdapter",
+              "UnityAdapter"
+            ],
             path: "Sources",
-//            resources: [
-//             .process("google_ads_multiads/Native/NativeAdView.xib")
-//            ]
         ),
-
+        .binaryTarget(
+         name: "AppLovinSDK",
+         path: "./Sources/AppLovinSDK.xcframework"
+        ),
+        .binaryTarget(
+         name: "MetaAdapter",
+         path: "./Sources/MetaAdapter.xcframework"
+        ),
+        .binaryTarget(
+         name: "UnityAdapter",
+         path: "./Sources/UnityAdapter.xcframework"
+        ),
     ]
 )

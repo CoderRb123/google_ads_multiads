@@ -15,6 +15,9 @@ public class GoogleAds : @preconcurrency NetworkInterface{
     public func initNetwork(onSdkInitialized: @escaping () -> Void) -> Bool {
         DispatchQueue.main.async {
             MobileAds.shared.start(completionHandler: nil)
+          
+
+
         }
         onSdkInitialized()
         return true
