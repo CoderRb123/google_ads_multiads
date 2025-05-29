@@ -20,15 +20,15 @@ let package = Package(
             dependencies: [
               "MultiAdsInterface",
               "GoogleMobileAds",
-              "AppLovinSDK",
+              "AppLovinAdapter",
               "MetaAdapter",
               "UnityAdapter"
             ],
             path: "Sources",
         ),
         .binaryTarget(
-         name: "AppLovinSDK",
-         path: "./Sources/AppLovinSDK.xcframework"
+         name: "AppLovinAdapter",
+         path: "./Sources/AppLovinAdapter.xcframework"
         ),
         .binaryTarget(
          name: "MetaAdapter",
