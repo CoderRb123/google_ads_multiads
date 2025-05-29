@@ -7,7 +7,6 @@
 
 import MultiAdsInterface
 import UIKit
-
 import GoogleMobileAds
 import SwiftUICore
 @available(iOS 14.0, *)
