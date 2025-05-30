@@ -11,7 +11,6 @@ let package = Package(
             targets: ["google_ads_multiads"]),
     ],
     dependencies : [
-        .package(name:"applovin_multiads",url: "https://github.com/CoderRb123/applovin_multiads.git",from: "1.0.0"),
         .package(name:"MultiAdsInterface",url: "https://github.com/CoderRb123/MultiAdsInterface.git",from: "1.1.7"),
         .package(name:"GoogleMobileAds",url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",.upToNextMajor(from: "12.4.0")),
     ],
@@ -20,17 +19,11 @@ let package = Package(
             name: "google_ads_multiads",
             dependencies: [
               "MultiAdsInterface",
-              "applovin_multiads",
               "GoogleMobileAds",
-              "AppLovinAdapter",
               "MetaAdapter",
               "UnityAdapter"
             ],
             path: "Sources",
-        ),
-        .binaryTarget(
-         name: "AppLovinAdapter",
-         path: "./Sources/AppLovinAdapter.xcframework"
         ),
         .binaryTarget(
          name: "MetaAdapter",
