@@ -33,9 +33,6 @@ let package = Package(
          name: "UnityAdapter",
          path: "./Sources/UnityAdapter.xcframework"
         ),
-        .binaryTarget(
-         name: "AppLovinSDK",
-         path: "./Sources/AppLovinSDK.xcframework"
-        ),
+       
     ]
 )
