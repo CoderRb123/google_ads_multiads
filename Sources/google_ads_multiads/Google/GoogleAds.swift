@@ -16,8 +16,7 @@ public class GoogleAds : @preconcurrency NetworkInterface{
     public func initNetwork(onSdkInitialized: @escaping () -> Void) -> Bool {
         
         DispatchQueue.main.async {
-            ALPrivacySettings.setHasUserConsent(true)
-            ALPrivacySettings.setDoNotSell(true)
+           
             MobileAds.shared.start { status in
 
                 let adapterStatuses = status.adapterStatusesByClassName
