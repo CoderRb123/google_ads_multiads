@@ -20,11 +20,21 @@ let package = Package(
             dependencies: [
               "MultiAdsInterface",
               "GoogleMobileAds",
+              "MetaGoogleAdapter",
+              "UnityAdapter",
              
             ],
             path: "Sources",
         ),
        
-       
+           
+            .binaryTarget(
+               name: "MetaGoogleAdapter",
+               path: "./Sources/MetaAdapter.xcframework"
+           ),
+          .binaryTarget(
+           name: "UnityAdapter",
+           path: "./Sources/UnityAdapter.xcframework"
+          ),
     ]
 )
