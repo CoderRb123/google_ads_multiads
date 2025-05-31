@@ -1,4 +1,4 @@
-// Copyright 2016 Google Inc.
+// Copyright 2018 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,12 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#import <Foundation/Foundation.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
+#import <AppLovinSDK/AppLovinSDK.h>
 
-/// Meta Audience Network native ad subtitle key used with the extra assets dictionary declared in
-/// GADMediatedNativeAd.h.
-extern NSString *const GADFBSubtitle;
+@interface GADMAdapterAppLovinExtras : NSObject<GADAdNetworkExtras>
 
-/// Meta Audience Network native ad social context key used with the extra assets dictionary
-/// declared in GADMediatedNativeAd.h.
-extern NSString *const GADFBSocialContext;
+/// Use this to mute audio for video ads. Must be set on each ad request.
+@property(nonatomic, assign) BOOL muteAudio __deprecated_msg(
+    "The `muteAudio` property is deprecated, use GADMobileAds.sharedInstance.applicationMuted instead.");
+
+@end

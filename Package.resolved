@@ -1,6 +1,15 @@
 {
-  "originHash" : "a983c134cf8c8e8fafadc686f9b79e0e4a3575602bda04442083ec5c94bdb150",
+  "originHash" : "ff6a252ad1a42201459f29940dace132cdd1c8f9c348455515e72f5e2dc41242",
   "pins" : [
+    {
+      "identity" : "applovin_multiads",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CoderRb123/applovin_multiads.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "43ee1332c7af49e7c3b3202b10aeb1556bc94ada"
+      }
+    },
     {
       "identity" : "ipapi",
       "kind" : "remoteSourceControl",
@@ -24,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/CoderRb123/MultiAdsInterface.git",
       "state" : {
-        "revision" : "afdfe4b673bd6d51e90d23f0579151d4ad9de6ce",
-        "version" : "1.1.7"
+        "branch" : "main",
+        "revision" : "afdfe4b673bd6d51e90d23f0579151d4ad9de6ce"
       }
     },
     {

@@ -5,6 +5,8 @@ import PackageDescription
 
 let package = Package(
     name: "google_ads_multiads",
+    defaultLocalization: "en", // ✅ Fix: Declare default localization
+
     products: [
         .library(
             name: "google_ads_multiads",
@@ -13,6 +15,7 @@ let package = Package(
     dependencies : [
         .package(name:"MultiAdsInterface",url: "https://github.com/CoderRb123/MultiAdsInterface.git",from: "1.1.7"),
         .package(name:"GoogleMobileAds",url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",.upToNextMajor(from: "12.4.0")),
+        .package(name:"applovin_multiads",url: "https://github.com/CoderRb123/applovin_multiads.git",branch: "main"),
     ],
     targets: [
         .target(
@@ -20,18 +23,23 @@ let package = Package(
             dependencies: [
               "MultiAdsInterface",
               "GoogleMobileAds",
-              "MetaGoogleAdapter",
+//              "MetaGoogleAdapter",
               "UnityAdapter",
-             
+              "AppLovinAdapter",
+              "applovin_multiads",
             ],
             path: "Sources",
-        ),
+         ),
+
+        .binaryTarget(
+                name: "AppLovinAdapter",
+                path: "./Sources/AppLovinAdapter.xcframework"
+            ),
        
-           
-            .binaryTarget(
-               name: "MetaGoogleAdapter",
-               path: "./Sources/MetaAdapter.xcframework"
-           ),
+//           .binaryTarget(
+//               name: "MetaGoogleAdapter",
+//               path: "./Sources/MetaAdapter.xcframework"
+//           ),
           .binaryTarget(
            name: "UnityAdapter",
            path: "./Sources/UnityAdapter.xcframework"
