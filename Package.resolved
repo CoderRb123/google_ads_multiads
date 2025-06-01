@@ -1,15 +1,6 @@
 {
-  "originHash" : "b2c01b978356e5cc581178584fa351dc424857a90b7dc28aa0bdce0b011db71a",
+  "originHash" : "0d8207c8b14eeae68df4a0dac53ceb960cf6b11fc5aeecbb8b0161b08f8f6335",
   "pins" : [
-    {
-      "identity" : "applovin_adapter",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/CoderRb123/applovin_adapter.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "f05bcff85d0423d93da2290a0177037dcab03ad7"
-      }
-    },
     {
       "identity" : "ipapi",
       "kind" : "remoteSourceControl",
